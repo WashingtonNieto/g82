@@ -28,4 +28,4 @@ public class PersonaRepository {
     public void delete(Integer id){
         personaCrudRepository.deleteById(id);
     }
-}
+  }
