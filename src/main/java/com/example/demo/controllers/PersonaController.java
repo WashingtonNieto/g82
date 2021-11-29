@@ -44,6 +44,8 @@ public class PersonaController {
         //if(p == null)
         //    return new ResponseEntity(null, HttpStatus.NO_CONTENT);
 
+        //para la modificacion
+
         return new ResponseEntity<>(p, HttpStatus.OK);
     }
 
