@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login y Registro</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<main>
+    <div class="contenedor__todo">
+        <div class="caja__trasera">
+            <div class="caja__trasera-login">
+                <h3>?Ya tienes una cuenta?</h3>
+                <p>Inicia sesion para entrar a la pagina</p>
+                <button id="btn__iniciar-sesion">Iniciar sesion</button>
+            </div>
+            <div class="caja__trasera-Register">
+                <h3>?Aun no tienes una cuenta?</h3>
+                <p>Registrate para que puedas iniciar sesion</p>
+                <button id="btn__registrarse">Registrate</button>
+            </div>
+        </div>
+        <div class="contenedor__login-register">
+            <form action="" class="formulario__login">
+                <h2>Iniciar Sesion</h2>
+                <input type="text" placeholder="Correo Electronico">
+                <input type="password" placeholder="Contrasena">
+                <button>Entrar</button>
+            </form>
+            <form action="" class="formulario__register">
+                <h2>Registrarse</h2>
+                <form action="" class="formulario_login">
+                    <input type="number" name="identificationUser" id="identificationUser" class="form-control" placeholder="Id" required>
+                    <input type="text" name="nameUser" id="nameUser" class="form-control" placeholder="Nombre" required>
+                    <input type="text" name="addressUser" id="addressUser" class="form-control" placeholder="Dirección" required>
+                    <input type="number" name="cellPhone" id="cellPhone" class="form-control" placeholder="Telefono" required>
+                    <input type="email" name="emailUser" id="emailUser" class="form-control" placeholder="Correo" required>
+                    <input type="password" name="passwordUser" class="form-control" placeholder="Contrasena" required>
+                    <button>Registrarse</button>
+                </form>
+            </form>
+        </div>
+    </div>
+</main>
+<script src="js/script.js"></script>
+</body>
+</html>
