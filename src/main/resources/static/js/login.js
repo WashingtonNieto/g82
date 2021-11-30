@@ -1,5 +1,5 @@
 /**
- * Cargar la libreria de Jquery y ubicar el cursor en el campo de registrar
+ * Cargar la libreria de Jquery y ubicar el cursor en el campo de login
  */
  $(document).ready(function () {
     estadoInicial()
@@ -8,37 +8,25 @@
 /**
  * Intenta autenticar al usuario en la aplicaciòn
  */
-function registrar(){
+function login(){
     //capturar los datos que ingreso el usuario en la pagina
-    let name = $("#username").val()
     let email = $("#useremail").val()
     let password = $("#password").val()
-    let repeatpassword = $("#passwordrepeat").val()
-
-    let datos={
-        email : $("#useremail").val(),
-        password : $("#password").val(),
-        name : $("#username").val()
-    }
-
-    let datosPeticion = JSON.stringify(datos)
+    console.log(email);
+    console.log(password);
 
     //utilizo la funcion de JQuery $.ajax para hacer un llamado asincrono
     //a un ws
     $.ajax({
         //url del servicio
-        url: "http://localhost:8080/api/user/new",
-        
-        //envio datos capturados por el usuario a la peticion
-        data: datosPeticion,
-
+        url: "http://localhost:8080/api/user/"+ email + "/" + password,
         //tipo de peticion
-        type: 'POST',
-
-        contentType: "application/JSON",
+        type: 'GET',
 
         //tipo de contenido
         dataType: 'json',
+
+        //envio datos capturados por el usuario a la peticion
 
         //success: funcion con acciones si todo sale ok
         success: function (respuesta) {
@@ -80,6 +68,6 @@ function resultado(respuesta){
 }
 
 function estadoInicial(){
-    $("#username").focus()
+    $("#useremail").focus()
 }
 

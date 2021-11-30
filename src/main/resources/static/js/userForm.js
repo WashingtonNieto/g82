@@ -1,58 +1,74 @@
-function saveUser(user){
+function saveUser(user) {
     let data = {
         identification : $("#identificationUser").val(),
         name : $("#nameUser").val(),
-        address : $("#addressUser").val(),
-        cellPhone : $("#cellPhone").val(),
+        adress : $("#addressUser").val(),
+        cellphone : $("#cellphone").val(),
         email : $("#emailUser").val(),
-        password :$("#passwordUser").val(),
-        zone :$("#zoneUser").val(),
-        type :$("#typeUser").val()
+        password : $("#passwordUser").val(),
+        zone : $("#zoneUser").val(),
+        type : $("#typeUser").val()
     }
+
     let datosPeticion = JSON.stringify(data)
 
-    //utilizo la funcion de JQuery $.ajax para hacer
-    //un llamado asincrono a un ws
-
+    //utilizo la funcion de JQuery $.ajax para hacer un llamado asincrono
+    //a un ws
     $.ajax({
         //url del servicio
-        url: "http://localhost:8080/api/user/"+email + "/" + password,
+        url: "http://localhost:8080/api/user/new",
+        
+        //envio datos capturados por el usuario a la peticion
+        data: datosPeticion,
+
         //tipo de peticion
         type: 'POST',
+
         contentType: "application/JSON",
+
         //tipo de contenido
         dataType: 'json',
 
-        //envio de datos capturados por el usuaio a la peticion
-
-        //success: funcion con acciones si todo es ok
-        success: function (respuesta){
-            //escribe en la consola del desarrollador para efectos de depuracion
+        //success: funcion con acciones si todo sale ok
+        success: function (respuesta) {
+            //escribe en la consola del desarrollador para efectos de depuración
             console.log(respuesta);
-            resultado(respuesta)
+            resultado(respuesta)	
         },
-        //error: funcion con acciones si hay error
-        //codigo a ejecutar si la peticion falla;
-        //son pasados como argumentos a la funcion
-        //el objeto de la peticion en crudo y codigo
-        //de estatus de la peticion
 
-        error: function(xhr, status){
-            //$("#mensajes").html("Ocurrio un problema al ejecutar la peticion..." + status);
-            console.log("Algo fallo");
+        //error: funcion con acciones si hay error
+        // código a ejecutar si la petición falla;
+        // son pasados como argumentos a la función
+        // el objeto de la petición en crudo y código de estatus de la petición
+        error: function (xhr, status) {
+            //$("#mensajes").html("Ocurrio un problema al ejecutar la petición..." + status);		
+            console.log("algo fallo");	
         },
-        //complete: funcion con el final de la peticion
-        //codigo a ejecutar sin importar si la peticion fallo o no
-        complete: function (xhr, status){
-            console.log("todo ok" + staturs);
+        //complete: funcion con al final de la petición
+        // código a ejecutar sin importar si la petición falló o no
+        complete: function (xhr, status) {
+            console.log("Todo super bien"  + status);
         }
     });
 }
 
+/**
+ * valida si en el id viene un dato nulo, o viene el codigo del usuario
+ * 
+ * Configura mensaje de bienvenida o de error según el caso
+ */
+function resultado(respuesta){
+    let id = respuesta.id
+    let nombre= respuesta.name
 
+    if (id==null)
+        alert("Usuario no registrado : " + nombre)
+    else
+        alert("Bienvenido : " + id + " "+ nombre)
 
+}
 
-
-
-
+function estadoInicial(){
+    $("#username").focus()
+}
 

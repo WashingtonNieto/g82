@@ -1,60 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login y Registro</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-<main>
-    <div class="contenedor__todo">
-        <div class="caja__trasera">
-            <div class="caja__trasera-login">
-                <h3>?Ya tienes una cuenta?</h3>
-                <p>Inicia sesion para entrar a la pagina</p>
-                <button id="btn__iniciar-sesion">Iniciar sesion</button>
-            </div>
-            <div class="caja__trasera-Register">
-                <h3>?Aun no tienes una cuenta?</h3>
-                <p>Registrate para que puedas iniciar sesion</p>
-                <button id="btn__registrarse">Registrate</button>
-            </div>
-        </div>
-        <div class="contenedor__login-register">
-            <form id="userForm" action="" class="formulario__login" method="post">
-                <h2>Iniciar Sesion</h2>
-                <input type="text" placeholder="Correo Electronico">
-                <input type="password" placeholder="Contrasena">
-                <button>Entrar</button>
-            </form>
-            <form action="" class="formulario__register">
-                <h2>Registrarse</h2>
-                <form action="" class="formulario_login">
-                    <input type="number" name="identificationUser" id="identificationUser" class="form-control" placeholder="Id" required>
-                    <input type="text" name="nameUser" id="nameUser" class="form-control" placeholder="Nombre" required>
-                    <input type="text" name="addressUser" id="addressUser" class="form-control" placeholder="Dirección" required>
-                    <input type="number" name="cellPhone" id="cellPhone" class="form-control" placeholder="Telefono" required>
-                    <input type="email" name="emailUser" id="emailUser" class="form-control" placeholder="Correo" required>
-                    <input type="password" name="passwordUser" class="form-control" placeholder="Contrasena" required>
-                    <input type="text" name="zoneUser" class="form-control" placeholder="Zona" required>
-                    <input type="text" name="typeUser" class="form-control" placeholder="Tipo de Usuario" required>
-                    <select name="tipoUsuario" id="typeUser" class="form-control" placeholder="Tipo de Usuario" required>
-                        <option selected value="" class="form-control" >Selecciona un tipo de usuario</option>
-                        <option value="CoordinadorDeZona" class="form-control">Coordinador de Zona</option>
-                        <option value="AsesoresComerciales" class="form-control">Asesores Comerciales</option>
-                    </select>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link rel="stylesheet" href="css/login.css" />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/login.js"></script>
+    <title>Alto Turmequé</title>
+  </head>
 
-                    <div class="form-group text-center">
-                        <input type="submit" name="GuardarDatos" class="btn btn-dark btn-md" value="Registrar" onclick="#registrar()"/>
-                        <input type="submit" name="submit" class="btn btn-dark btn-md" value="Cancelar" onclick="#cancelar()"/>
-                    </div>
-                </form>
-            </form>
+  <body>
+     <!-- Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Alto Turmequé</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+
+              <a class="nav-link active ps-5" aria-current="page" href="./index.html">
+                <div class="sb-nav-link-icon "><i class="fas fa-home "></i></div>
+                Home
+              </a>
+            </li>            
+          </ul>
         </div>
+      </div>
+    </nav>
+  </header>
+  <!-- TERMINA NAVBAR -->
+    <div id="login">
+      <div class="container">
+        <div
+          id="login-row"
+          class="row justify-content-center align-items-center"
+        >
+          <div id="login-column" class="col-md-6">
+            <div id="login-box" class="col-md-12">
+              <form id="login-form" class="form" action="" method="post">
+                <h3 class="text-center text-info">Inicio de sesion</h3>
+                <div class="form-group">
+                  <label for="useremail" class="text-info">E-mail:</label><br />
+                  <input
+                    type="email"
+                    name="useremail"
+                    id="useremail"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password" class="text-info">Contraseña:</label
+                  ><br />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="form-group text-center">
+                  <input
+                    type="button"
+                    name="submit"
+                    class="btn btn-info btn-md"
+                    value="Ingresar"
+                    onclick="login()"
+                  />
+                </div>
+                <div class="form-group text-center">
+                  <label for="remember-me" class="text-info">
+                    <span
+                      >No tienes una cuenta?
+                      <a href="registro.html" class="text-info"
+                        >Crea tu cuenta aqui</a
+                      ></span
+                    >
+                  </label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</main>
-<script src="js/script.js"></script>
-</body>
+  </body>
 </html>

@@ -1,8 +1,8 @@
 package com.example.demo.controllers;
 
 
-import com.example.demo.models.Persona;
-import com.example.demo.services.PersonaService;
+import com.example.demo.models.User;
+import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,26 +17,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping("/api/persona")
+@RequestMapping("/api/user")
 
-public class PersonaController {
+public class UserController {
 
     @Autowired
-    private PersonaService personaService;
+    private UserService userService;
 
     @GetMapping("/all")
-    public List<Persona> getAll() {
-        return personaService.getAll();
+    public List<User> getAll() {
+        return userService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Persona getById(@PathVariable Integer id) {
-        return personaService.getById(id).orElse(null);
+    public User getById(@PathVariable Integer id) {
+        return userService.getById(id).orElse(null);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Persona> update(@RequestBody Persona persona) {
-        Persona p = personaService.update(persona);
+    public ResponseEntity<User> update(@RequestBody User user) {
+        User p = userService.update(user);
 
         //En nuestro caso no se necesita la siguiente validacion
         //porque nunca va a ser null --- solo informativo
@@ -50,14 +50,14 @@ public class PersonaController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Persona> save(@RequestBody Persona persona) {
-        Persona p = personaService.save(persona);
+    public ResponseEntity<User> save(@RequestBody User user) {
+        User p = userService.save(user);
         return new ResponseEntity(p, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {
-        personaService.delete(id);
+        userService.delete(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
