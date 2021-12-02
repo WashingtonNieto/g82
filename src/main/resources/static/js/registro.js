@@ -1,12 +1,12 @@
 //Manejador "POST"
 function registrar() {
 
-    if($("#identificationUser") == "" || $("#nameUser").val() == 0){
-        alert("Todos los campos son obligatorios")
-    }else{
-            let elemento = {
-                name: $("#name").val(),
-                description: $("#description").val()
+    //if($("#identificationUser") == "" || $("#nameUser").val() == 0){
+    //    alert("Todos los campos son obligatorios")
+    //}else{
+            let element = {
+                name: $("#nameUser").val(),
+                password : $("#passwordUser").val()
             }
 
             let dataToSend = JSON.stringify(elemento);
@@ -14,8 +14,8 @@ function registrar() {
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url:"http://168.138.247.22:80/api/Category/save",
-                //url: "http://localhost:8080/api/Category/save",
+                //url:"http://168.138.247.22:80/api/Category/save",
+                url: "http://localhost:8080/api/user/save",
                 data: dataToSend,
                 datatype: "json",
 
@@ -33,5 +33,5 @@ function registrar() {
                     alert("NO se ha guardado Correctamente!")
                 }
             });
-    }
+    //}
 }

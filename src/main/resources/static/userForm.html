@@ -20,13 +20,24 @@
                     <form id="userForm" class="form " action="" method="post">
                         <h3 class="text-center text-white">Formulario de usuario</h3>
                         <div class="form-group">
+                            <label for="idUser" class="text-white ">Id:</label><br />
+                            <input type="number" name="idUser" id="idUser" class="form-control" required />
+                        </div>
+                        <div class="form-group">
                             <label for="identificationUser" class="text-white ">Identificación:</label><br />
-                            <input type="number" name="identificationUser" id="identificationUser" class="form-control"
-                                required />
+                            <input type="text" name="identificationUser" id="identificationUser" class="form-control" required />
                         </div>
                         <div class="form-group">
                             <label for="nameUser" class="text-white">Nombre</label><br/>
                             <input type="text" name="nameUser" id="nameUser" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthDayUser" class="text-white">Fecha Cumple</label><br>
+                            <input type="date" name="birthDayUser" id="birthDayUser"class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthBirthDayUser" class="text-white">Mes de cumple</label><br>
+                            <input type="text" name="monthBirthDayUser" id="monthBirthDayUser"class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="addressUser" class="text-white">Dirección</label><br>
@@ -34,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cellPhoneUser" class="text-white">Telefono</label><br>
-                            <input type="number" name="cellPhone" id="cellphoneUser"  class="form-control" required>
+                            <input type="number" name="cellPhoneUser" id="cellphoneUser"  class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="emailUser" class="text-white">Correo</label>
@@ -60,7 +71,7 @@
             </div>
         </div>
         <div class="form-group text-center">
-            <input type="submit" name="guardaeDatos" class="btn btn-dark btn-md" value="Guardar" onclick=""/>  
+            <input type="submit" name="guardaeDatos" class="btn btn-dark btn-md" value="Guardar" onclick="saveUser()"/>
             <input class="btn btn-dark btn-md" value="Cancelar" onclick=""/>                               
         </div>
        
