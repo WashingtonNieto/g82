@@ -1,24 +1,25 @@
 function saveUser() {
     let mydata={
-        id:$("#idUser").val(),
-        identification:$("#identificationUser").val(),
-        name:$("#nameUser").val(),
-        birthday:$("#birthDayUser").val(),
-        monthBirthDay:$("#monthBirthDayUser").val(),
-        address:$("#addressUser").val(),
-        cellphone:$("#cellphoneUser").val(),
-        email:$("#emailUser").val(),
-        password:$("#passwordUser").val(),
-        zone:$("#zoneUser").val(),
-        type:$("#typeUser").val(),
+        idUser:$("#idUser").val(),
+        identificationUser:$("#identificationUser").val(),
+        nameUser:$("#nameUser").val(),
+        birthDayUser:$("#birthDayUser").val(),
+        monthBirthDayUser:$("#monthBirthDayUser").val(),
+        addressUser:$("#addressUser").val(),
+        cellphoneUser:$("#cellphoneUser").val(),
+        emailUser:$("#emailUser").val(),
+        passwordUser:$("#passwordUser").val(),
+        zoneUser:$("#zoneUser").val(),
+        typeUser:$("#typeUser").val(),
     };
     let dataToSend=JSON.stringify(mydata);
-
+    console.log(mydata);
     $.ajax({
         url: "http://localhost:8080/api/user/save",
-        data: mydata,
         type: "POST",
+        data: mydata,
         dataType: "JSON",
+        ContentType:"application/json;charset=utf-8",
         success: function (respuesta) {
             console.log(respuesta);
             resultado(respuesta)	
@@ -33,18 +34,4 @@ function saveUser() {
     });
 }
 
-function resultado(respuesta){
-    let id = respuesta.id
-    let nombre= respuesta.name
-
-    if (id==null)
-        alert("Usuario no registrado : " + nombre)
-    else
-        alert("Bienvenido : " + id + " "+ nombre)
-
-}
-
-function estadoInicial(){
-    $("#username").focus()
-}
 
